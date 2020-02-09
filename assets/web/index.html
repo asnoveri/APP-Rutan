@@ -1,0 +1,322 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Flat Charts Flat Responsive Widget Template :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Flat Charts Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphgraph Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!--// css -->
+<script src="js/jquery-1.11.1.min.js"></script>	
+<!-- chart -->
+<script src="js/Chart.js"></script>
+<!-- //chart -->
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!--main-->
+ <div class="wrap"> 
+         <h1>Flat Charts</h1>
+    <div class="main"> 
+	     <div class="graph"> 
+		    <canvas id="canvas" height="350" width="600"></canvas>
+                
+	         <script>
+
+		 var barChartData = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
+					fillColor : "rgba(9, 35, 78, 0.91)",
+					strokeColor : "rgba(9, 35, 78, 0.91)",
+					data : [65,59,90,81,56,55,40]
+				},
+				{
+					fillColor : "rgba(255, 137, 167, 0.78)",
+					strokeColor : "rgba(255, 163, 186, 0.93)",
+					data : [28,48,40,19,96,27,100]
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
+	
+	</script>
+   </div>
+   <!--start-second-->
+   <div class="graph"> 
+						<div class="month-graph effect21">
+						<canvas id="line" height="300" width="300" style="width:300px; height: 300px;"></canvas>
+						<script>
+
+							var lineChartData = {
+								labels : ["January","February","March","April","May","June","July"],
+								datasets : [
+									{
+										fillColor : "rgba(9, 35, 78, 0.91)",
+										strokeColor : "rgb(255, 137, 167)",
+										pointColor : "rgba(220,220,220,1)",
+										pointStrokeColor : "#fff",
+										data : [65,59,90,81,56,55,40]
+									},
+									{
+										fillColor : "rgba(255, 137, 167, 0.78)",
+										strokeColor : "rgba(9, 35, 78, 0.91)",
+										pointColor : "rgba(151,187,205,1)",
+										pointStrokeColor : "#fff",
+										data : [28,48,40,19,96,27,100]
+									}
+								]
+								
+							}
+
+						var myLine = new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+						
+						</script>
+				</div>
+			</div>
+				<div class="graph lost"> 
+		     <div class="left-graph-info">
+								<div class="alert-close4"> </div>
+										<h3>Statistics</h3>
+									<script src="js/jquery.flot.min.js"></script>
+									<!--//graph-->
+											<script>
+											$(document).ready(function () {
+											
+												// Graph Data ##############################################
+												var graphData = [{
+														// Returning Visits
+														data: [ [6, 4500], [7,3500], [8, 6550], [9, 7600], ],
+														color: '#FFA3BA',
+														points: { radius: 4, fillColor: '#1d365f' }
+													}
+												];
+											
+												// Lines Graph #############################################
+												$.plot($('#graph-lines'), graphData, {
+													series: {
+														points: {
+															show: true,
+															radius: 1
+														},
+														lines: {
+															show: true
+														},
+														shadowSize: 0
+													},
+													grid: {
+														color: '#1d365f',
+														borderColor: 'transparent',
+														borderWidth: 10,
+														hoverable: true
+													},
+													xaxis: {
+														tickColor: 'transparent',
+														tickDecimals: false
+													},
+													yaxis: {
+														tickSize: 1200
+													}
+												});
+											
+												// Bars Graph ##############################################
+												$.plot($('#graph-bars'), graphData, {
+													series: {
+														bars: {
+															show: true,
+															barWidth: .9,
+															align: 'center'
+														},
+														shadowSize: 0
+													},
+													grid: {
+														color: '#fff',
+														borderColor: 'transparent',
+														borderWidth: 20,
+														hoverable: true
+													},
+													xaxis: {
+														tickColor: 'transparent',
+														tickDecimals: 2
+													},
+													yaxis: {
+														tickSize: 1000
+													}
+												});
+											
+												// Graph Toggle ############################################
+												$('#graph-bars').hide();
+											
+												$('#lines').on('click', function (e) {
+													$('#bars').removeClass('active');
+													$('#graph-bars').fadeOut();
+													$(this).addClass('active');
+													$('#graph-lines').fadeIn();
+													e.preventDefault();
+												});
+											
+												$('#bars').on('click', function (e) {
+													$('#lines').removeClass('active');
+													$('#graph-lines').fadeOut();
+													$(this).addClass('active');
+													$('#graph-bars').fadeIn().removeClass('hidden');
+													e.preventDefault();
+												});
+											
+												// Tooltip #################################################
+												function showTooltip(x, y, contents) {
+													$('<div id="tooltip">' + contents + '</div>').css({
+														top: y - 16,
+														left: x + 20
+													}).appendTo('body').fadeIn();
+												}
+											
+												var previousPoint = null;
+											
+												$('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
+													if (item) {
+														if (previousPoint != item.dataIndex) {
+															previousPoint = item.dataIndex;
+															$('#tooltip').remove();
+															var x = item.datapoint[0],
+																y = item.datapoint[1];
+																showTooltip(item.pageX, item.pageY, y+ x );
+														}
+													} else {
+														$('#tooltip').remove();
+														previousPoint = null;
+													}
+												});
+											
+											});
+											</script>
+									<!-- Graph HTML -->
+									<div id="graph-wrapper">
+										<div class="graph-container">
+											<div id="graph-lines"> </div>
+											<div id="graph-bars"> </div>
+										</div>
+									</div>
+									<!-- end Graph HTML -->
+						</div>
+						</div>
+			<div class="clear"></div>
+    	</div>
+	<div class="main two">
+	<div class="graph">
+	<canvas id="radar" height="400" width="350"></canvas>
+
+
+		<script>
+
+			var radarChartData = {
+				labels : ["Eating","Drinking","Sleeping","Designing","Coding","Partying","Running"],
+				datasets : [
+					{
+						fillColor : "rgba(9, 35, 78, 0.91)",
+						strokeColor : "rgba(9, 35, 78, 0.91)",
+						pointColor : "rgba(220,220,220,1)",
+						pointStrokeColor : "#fff",
+						data : [65,59,90,81,56,55,40]
+					},
+					{
+						fillColor : "rgba(249, 224, 59, 0.65)",
+						strokeColor : "rgba(9, 35, 78, 0.91)",
+						pointColor : "rgba(151,187,205,1)",
+						pointStrokeColor : "#fff",
+						data : [28,48,40,19,96,27,100]
+					}
+				]
+				
+			}
+
+		var myRadar = new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData,{scaleShowLabels : false, pointLabelFontSize : 10});
+		
+		</script>
+		</div>
+		 <div class="graph">
+		 	<canvas id="pie" height="400" width="300"></canvas>
+		<div class="legend">
+			<div id="os-Win-lbl">Chrome <span>100%</span></div>
+			<div id="os-Mac-lbl">Internet Explorer <span> 50%</span></div>
+			<div id="os-Other-lbl">Safari<span>30%</span></div>
+		  </div>
+
+	<script>
+
+		var pieData = [
+				{
+					value: 30,
+					color:"#FFA3BA"
+				},
+				{
+					value : 50,
+					color : "#1d365f"
+				},
+				{
+					value : 100,
+					color : "#f9e03b"
+				}
+			
+			];
+
+	var myPie = new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+	
+	</script>
+		 </div>
+		 <div class="graph lost1">
+		 <canvas id="polar" height="400" width="350"></canvas>
+
+
+	<script>
+	var chartData = [
+			{
+				value : Math.random(),
+				color: "#1d365f"
+			},
+			{
+				value : Math.random(),
+				color: "#FFA3BA"
+			},
+			{
+				value : Math.random(),
+				color: "#f9e03b"
+			},
+			{
+				value : Math.random(),
+				color: "#1d365f"
+			},
+			{
+				value : Math.random(),
+				color: "#bb62a6"
+			},
+			{
+				value : Math.random(),
+				color: "#0dd3f4"
+			}
+		];
+	var myPolarArea = new Chart(document.getElementById("polar").getContext("2d")).PolarArea(chartData);
+	</script>
+
+		 </div>
+		 <div class="clear"></div>
+	</div>
+</div>
+</div>
+	<!--start-copyright-->
+   		<div class="copy-right">
+				<p> &copy; 2015 Flat Charts. All rights  Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+	<!--//end-copyright-->
+</body>
+</html>
